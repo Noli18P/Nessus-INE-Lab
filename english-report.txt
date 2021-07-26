@@ -1,0 +1,113 @@
+This laboratory is thanks to the INE course to be able to obtain the elearn eJPT certification
+security
+
+In this lab called nessus, I have to perform almost every step during a penetration test
+but without reaching the exploitation phase, this document is to write what I think during the
+test, I will also upload tests, results, etc to my github!
+
+The tasks that I must do are:
+
+- Find the target on the net
+- Identify the role in the network of said objective
+- Configure nessus and run a scan
+- Analyze and export the results
+- Explode the target (optional)
+
+
+--------------------------------
+FIND THE TARGET
+--------------------------------
+
+To do this I will use the ping sweeping technique which basically consists of sending ICMP packets
+to the range of a network.
+
+My IP is 192.168.99.70/24, I use fping and nmap with the -sn option, I will also export the results
+
+The IP addresses I found are:
+
+192.168.99.50
+192.168.99.70
+
+Based on the fping results there are only TWO hosts, I will use nmap and also check it manually
+
+Nmap also found only two hosts!
+
+Using ping -c 1 [IP], I will check the operating system, I do this thanks to the TTL, if it is equal to 64 it is
+a Linux but if it is equal to 128 it is Windows.
+
+192.168.99.50 is equal to 128, therefore it is a WIndows
+192.168.99.70 is equal to 64, therefore it is a Linux
+
+---------------------------------
+OPERATING SYSTEM
+---------------------------------
+
+In this phase I am already a little advanced, they are running windows and linux, but I will use nmap to try
+find out more precisely
+
+Nmap does not return any accurate information to me.
+
+The command I used:
+
+nmap -O 192.168.99.50,70
+
+---------------------------------
+PORT SCAN
+---------------------------------
+
+With this stage I will obtain the services and versions of the same running in said IP addresses
+
+I will use the command: nmap -sS -sV -A --min-rate 5000
+
+-sS for a SYN scan
+-sV to get the versions
+-A get versions, OS, run nmap scripts
+--min-rate to send 5000 packets per second
+
+I didn't get much but I will use -p- to scan all ports
+
+I have my suspicions that the host 192.168.99.70 has a firewall protecting it!
+
+My machine results 192.168.99.50 tell me that the operating system is: Windows XP
+
+And for the address 192.168.99.70 it is Linux 2.6.X
+
+Although I did not identify the version of the service, so IF it is protected by a firewall
+
+Thanks to this I realize that the IP 192.168.99.50 is a client and NOT a server, since it does not count
+with services like FTP or SSH and even NGIX or Apache.
+
+---------------------------------
+SCAN WITH NESSUS
+---------------------------------
+
+Well for this I will create a new policy focused mainly on Windows
+
+Policy:
+
+In this option disable some options, the port scan was with TCP and in terms of plugins
+use only the ones that have to do with Windows.
+
+I will export and analyze the results to try to exploit the vulnerabilities
+
+---------------------------------
+VULNERABILITY SCAN
+---------------------------------
+
+Once I finish the scan I realize that there are 4 CRITICAL vulnerabilities, but the ones that
+caught my attention were:
+
+- MS08-067
+- MS09-001
+
+Since both allow remote execution!
+
+In addition to the fact that the smb service has vulnerabilities that as an attacker allow me to collect even more
+information about this and this would make intrusion even easier for me.
+
+----------------------------------
+CONCLUSION
+----------------------------------
+This laboratory helps me understand many things, the importance of the information that we can
+gather on a system, very useful techniques, the importance of reports and tests, but this
+It is only the beginning, I will continue with the course and then I will try to exploit the machine!

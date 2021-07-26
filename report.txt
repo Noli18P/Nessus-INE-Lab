@@ -1,0 +1,113 @@
+Este laboratorio es gracias a el curso de INE para poder obtener la certificación eJPT de elearn
+security
+
+En este laboratorio llamado nessus, debo realizar casi todos los pasos durante una prueba de intrusión
+pero sin llegar a la fase de explotación, este documento es para escribir lo que pienso durante la 
+prueba, además subiré pruebas, resultados, etc a mi github!
+
+Las tareas que debo hacer son:
+
+- Encontrar el objetivo en la red
+- Identificar el rol en la red de dicho objetivo
+- COnfigurar nessus y ejecutar un escaneo
+- Analizar y exportar los resultados
+- Explotar el objetivo (opcional)
+
+
+--------------------------------
+ENCONTRAR EL OBJETIVO
+--------------------------------
+
+Para hacer esta tarea usaré la técnica de ping sweeping que básicamente consiste en enviar paquetes ICMP
+a el rango de una red.
+
+Mi IP es 192.168.99.70/24, usaŕe fping y nmap con la opcion de -sn, además exportare los resultados
+
+Las direcciones IP que encontre son:
+
+192.168.99.50
+192.168.99.70
+
+Según los resultados de fping solo hay DOS hosts, usaré nmap y también lo revisaré de forma manual
+
+Nmap también encontro solo dos hosts!
+
+Usando ping -c 1 [IP], revisaré el sistema operativo, esto lo hago gracias a el TTL, si es igual a 64 es
+un Linux pero si es igual a 128 es Windows.
+
+192.168.99.50 es igual a 128, por lo tanto es un WIndows
+192.168.99.70 es igual a 64, por lo tanto es un Linux
+
+---------------------------------
+SISTEMA OPERATIVO
+---------------------------------
+
+En esta fase ya estoy un poco adelantado, se que ejecutan windows y linux, pero usaré nmap para intentar
+averiguarlo de una forma más precisa
+
+Nmap no me retorna ninguna información precisa.
+
+El comando que usé:
+
+nmap -O 192.168.99.50,70 
+
+---------------------------------
+ESCANEO DE PUERTOS
+---------------------------------
+
+Con esta etapa obtendre los servicios y versiones de los mismos ejecutandose en dichas direcciones IP
+
+Usare el comando: nmap -sS -sV -A --min-rate 5000
+
+-sS para un escaneo SYN
+-sV para obtener las versiones
+-A obtiene las versiones, el OS, ejecuta scripts de nmap
+--min-rate para mandar 5000 paquetes por segundo
+
+No obtuve gran cosa pero usaré -p- para escanear todos los puertos
+
+Tengo mi sospechas de que el host 192.168.99.70 tiene un firewall protegiendolo!
+
+Mis resultados de la máquina 192.168.99.50 me indican que el sistema operativo es: Windows XP
+
+Y para la dirección 192.168.99.70 es Linux 2.6.X
+
+Aunque no me identificó la versión del servicio, asi que SI esta protegida por un firewall
+
+Gracias a esto me doy cuenta de que la IP 192.168.99.50 es un cliente y NO un servidor, ya que no cuenta
+con servicios como FTP o SSH e incluso NGIX o Apache.
+
+---------------------------------
+ESCANEO CON NESSUS
+---------------------------------
+
+Bueno para esto crearé una nueva politica enfocada principalmente en Windows
+
+Policy:
+
+En esta opcion deshabilite algunas opciones, el escaneo de puertos fue con TCP y en cuanto a plugins
+use solo los que tienen que ver con Windows.
+
+Exportare y analizaré los resultados para intentar explotar las vulnerabilidades
+
+---------------------------------
+ANALISIS DE VULNERABILIDADES
+---------------------------------
+
+Una vez que termino el escaneo me doy cuenta de que existen 4 vulnerabilidades CRITICAS, pero las que más
+llamaron mi atencion fueron:
+
+- MS08-067
+- MS09-001
+
+Ya que ambas permite ejecucion de forma remota!
+
+Además de que el servicio smb tiene vulnerabilidades que como atacante me permiten recavar aún más 
+información sobre esto y esto me facilitaría aún más la intrusión.
+
+----------------------------------
+CONCLUSION
+----------------------------------
+Este laboratorio me ayuda a comprender muchisimas cosas, la importancia de la informacion que podemos
+recabar sobre un sistema, tecnicas muy útiles, la importancia de los reportes y pruebas, pero esto 
+es solo el comienzo, seguire con el curso y después intentare explotar la maquina!
