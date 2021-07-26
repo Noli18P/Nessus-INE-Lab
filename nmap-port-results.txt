@@ -1,0 +1,170 @@
+# Nmap 7.91 scan initiated Sun Jul 25 16:50:14 2021 as: nmap -p- --min-rate 8000 -A -o nmap-port-results.txt 192.168.99.50,70
+Warning: 192.168.99.50 giving up on port because retransmission cap hit (10).
+Nmap scan report for 192.168.99.50
+Host is up (0.15s latency).
+Not shown: 62524 closed ports, 3008 filtered ports
+PORT    STATE SERVICE      VERSION
+135/tcp open  msrpc        Microsoft Windows RPC
+139/tcp open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp open  microsoft-ds Windows XP microsoft-ds
+MAC Address: 00:50:56:A0:44:F0 (VMware)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.91%E=4%D=7/25%OT=135%CT=1%CU=42371%PV=Y%DS=1%DC=D%G=Y%M=005056%
+OS:TM=60FDF954%P=x86_64-pc-linux-gnu)SEQ(SP=106%GCD=1%ISR=10C%TI=I%CI=I%II=
+OS:I%SS=S%TS=0)OPS(O1=M4E7NW0NNT00NNS%O2=M4E7NW0NNT00NNS%O3=M4E7NW0NNT00%O4
+OS:=M4E7NW0NNT00NNS%O5=M4E7NW0NNT00NNS%O6=M4E7NNT00NNS)WIN(W1=FFFF%W2=FFFF%
+OS:W3=FFFF%W4=FFFF%W5=FFFF%W6=FFFF)ECN(R=Y%DF=Y%T=80%W=FFFF%O=M4E7NW0NNS%CC
+OS:=N%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=N%T=80%W=0%S=Z%A=
+OS:S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%W=FFFF%S=O%A=S+%F=AS%O=M4E7NW0NNT00NN
+OS:S%RD=0%Q=)T4(R=Y%DF=N%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T5(R=Y%DF=N%T=80%W
+OS:=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=N%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)
+OS:T7(R=Y%DF=N%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=80%IPL=B0%UN
+OS:=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=S%T=80%CD=Z)
+
+Network Distance: 1 hop
+Service Info: OSs: Windows, Windows XP; CPE: cpe:/o:microsoft:windows, cpe:/o:microsoft:windows_xp
+
+Host script results:
+|_clock-skew: mean: 3h29m59s, deviation: 4h56m59s, median: 0s
+|_nbstat: NetBIOS name: ELS-WINXP, NetBIOS user: <unknown>, NetBIOS MAC: 00:50:56:a0:44:f0 (VMware)
+| smb-os-discovery: 
+|   OS: Windows XP (Windows 2000 LAN Manager)
+|   OS CPE: cpe:/o:microsoft:windows_xp::-
+|   Computer name: els-winxp
+|   NetBIOS computer name: ELS-WINXP\x00
+|   Workgroup: WORKGROUP\x00
+|_  System time: 2021-07-25T16:52:01-07:00
+| smb-security-mode: 
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled (dangerous, but default)
+|_smb2-time: Protocol negotiation failed (SMB2)
+
+TRACEROUTE
+HOP RTT       ADDRESS
+1   148.17 ms 192.168.99.50
+
+Nmap scan report for 192.168.99.70
+Host is up (0.000089s latency).
+Not shown: 65534 closed ports
+PORT     STATE SERVICE            VERSION
+8834/tcp open  ssl/nessus-xmlrpc?
+| fingerprint-strings: 
+|   FourOhFourRequest: 
+|     HTTP/1.1 404 File not found
+|     Cache-Control: no-cache, no-store, must-revalidate
+|     X-Frame-Options: DENY
+|     Content-Type: application/json
+|     Connection: close
+|     X-XSS-Protection: 1; mode=block
+|     Server: NessusWWW
+|     X-Content-Type-Options: nosniff
+|     Date: Sun, 25 Jul 2021 23:54:06 GMT
+|     Content-Length: 45
+|     Content-Security-Policy: upgrade-insecure-requests; block-all-mixed-content; form-action 'self'; frame-ancestors 'none'; frame-src https://store.tenable.com; default-src 'self'; connect-src 'self'; script-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self';
+|     Strict-Transport-Security: max-age=31536000
+|     Expires: 0
+|     Expect-CT: max-age=0
+|     Pragma: no-cache
+|     {"error":"The requested file was not found."}
+|   GetRequest: 
+|     HTTP/1.1 200 OK
+|     Cache-Control: must-revalidate
+|     X-Frame-Options: DENY
+|     Content-Type: text/html
+|     ETag: 9c5cb38ff3213938947d8dc6c1309a4a
+|     Connection: close
+|     X-XSS-Protection: 1; mode=block
+|     Server: NessusWWW
+|     Date: Sun, 25 Jul 2021 23:53:25 GMT
+|     X-Content-Type-Options: nosniff
+|     Content-Length: 947
+|     Content-Security-Policy: upgrade-insecure-requests; block-all-mixed-content; form-action 'self'; frame-ancestors 'none'; frame-src https://store.tenable.com; default-src 'self'; connect-src 'self'; script-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; object-src 'none'; base-uri 'self';
+|     Strict-Transport-Security: max-age=31536000
+|     Expect-CT: max-age=0
+|     <!doctype html>
+|     <html lang="en">
+|     <head>
+|     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+|     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-co
+|   HTTPOptions: 
+|     HTTP/1.1 405 Method not Allowed
+|     Connection: close
+|     Date: Sun, 25 Jul 2021 23:53:25 GMT
+|     Content-Length: 0
+|     Server: NessusWWW
+|   Help: 
+|     HTTP/1.1 400 Bad Request
+|     Connection: close
+|     Date: Sun, 25 Jul 2021 23:53:40 GMT
+|     Content-Length: 0
+|     Server: NessusWWW
+|   RTSPRequest: 
+|     HTTP/1.1 400 Bad Request
+|     Connection: close
+|     Date: Sun, 25 Jul 2021 23:53:25 GMT
+|     Content-Length: 0
+|     Server: NessusWWW
+|   TerminalServerCookie: 
+|     HTTP/1.1 400 Bad Request
+|     Connection: close
+|     Date: Sun, 25 Jul 2021 23:53:46 GMT
+|     Content-Length: 0
+|_    Server: NessusWWW
+| ssl-cert: Subject: commonName=kali/organizationName=Nessus Users United/stateOrProvinceName=NY/countryName=US
+| Not valid before: 2021-07-25T22:34:49
+|_Not valid after:  2025-07-24T22:34:49
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port8834-TCP:V=7.91%T=SSL%I=7%D=7/25%Time=60FDF975%P=x86_64-pc-linux-gn
+SF:u%r(GetRequest,659,"HTTP/1\.1\x20200\x20OK\r\nCache-Control:\x20must-re
+SF:validate\r\nX-Frame-Options:\x20DENY\r\nContent-Type:\x20text/html\r\nE
+SF:Tag:\x209c5cb38ff3213938947d8dc6c1309a4a\r\nConnection:\x20close\r\nX-X
+SF:SS-Protection:\x201;\x20mode=block\r\nServer:\x20NessusWWW\r\nDate:\x20
+SF:Sun,\x2025\x20Jul\x202021\x2023:53:25\x20GMT\r\nX-Content-Type-Options:
+SF:\x20nosniff\r\nContent-Length:\x20947\r\nContent-Security-Policy:\x20up
+SF:grade-insecure-requests;\x20block-all-mixed-content;\x20form-action\x20
+SF:'self';\x20frame-ancestors\x20'none';\x20frame-src\x20https://store\.te
+SF:nable\.com;\x20default-src\x20'self';\x20connect-src\x20'self';\x20scri
+SF:pt-src\x20'self';\x20img-src\x20'self'\x20data:;\x20style-src\x20'self'
+SF:\x20'unsafe-inline';\x20object-src\x20'none';\x20base-uri\x20'self';\r\
+SF:nStrict-Transport-Security:\x20max-age=31536000\r\nExpect-CT:\x20max-ag
+SF:e=0\r\n\r\n<!doctype\x20html>\n<html\x20lang=\"en\">\n\x20\x20\x20\x20<
+SF:head>\n\x20\x20\x20\x20\x20\x20\x20\x20<meta\x20http-equiv=\"X-UA-Compa
+SF:tible\"\x20content=\"IE=edge,chrome=1\"\x20/>\n\x20\x20\x20\x20\x20\x20
+SF:\x20\x20<meta\x20http-equiv=\"Content-Security-Policy\"\x20content=\"up
+SF:grade-insecure-requests;\x20block-all-mixed-co")%r(HTTPOptions,81,"HTTP
+SF:/1\.1\x20405\x20Method\x20not\x20Allowed\r\nConnection:\x20close\r\nDat
+SF:e:\x20Sun,\x2025\x20Jul\x202021\x2023:53:25\x20GMT\r\nContent-Length:\x
+SF:200\r\nServer:\x20NessusWWW\r\n\r\n")%r(RTSPRequest,7A,"HTTP/1\.1\x2040
+SF:0\x20Bad\x20Request\r\nConnection:\x20close\r\nDate:\x20Sun,\x2025\x20J
+SF:ul\x202021\x2023:53:25\x20GMT\r\nContent-Length:\x200\r\nServer:\x20Nes
+SF:susWWW\r\n\r\n")%r(Help,7A,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConne
+SF:ction:\x20close\r\nDate:\x20Sun,\x2025\x20Jul\x202021\x2023:53:40\x20GM
+SF:T\r\nContent-Length:\x200\r\nServer:\x20NessusWWW\r\n\r\n")%r(TerminalS
+SF:erverCookie,7A,"HTTP/1\.1\x20400\x20Bad\x20Request\r\nConnection:\x20cl
+SF:ose\r\nDate:\x20Sun,\x2025\x20Jul\x202021\x2023:53:46\x20GMT\r\nContent
+SF:-Length:\x200\r\nServer:\x20NessusWWW\r\n\r\n")%r(FourOhFourRequest,2EF
+SF:,"HTTP/1\.1\x20404\x20File\x20not\x20found\r\nCache-Control:\x20no-cach
+SF:e,\x20no-store,\x20must-revalidate\r\nX-Frame-Options:\x20DENY\r\nConte
+SF:nt-Type:\x20application/json\r\nConnection:\x20close\r\nX-XSS-Protectio
+SF:n:\x201;\x20mode=block\r\nServer:\x20NessusWWW\r\nX-Content-Type-Option
+SF:s:\x20nosniff\r\nDate:\x20Sun,\x2025\x20Jul\x202021\x2023:54:06\x20GMT\
+SF:r\nContent-Length:\x2045\r\nContent-Security-Policy:\x20upgrade-insecur
+SF:e-requests;\x20block-all-mixed-content;\x20form-action\x20'self';\x20fr
+SF:ame-ancestors\x20'none';\x20frame-src\x20https://store\.tenable\.com;\x
+SF:20default-src\x20'self';\x20connect-src\x20'self';\x20script-src\x20'se
+SF:lf';\x20img-src\x20'self'\x20data:;\x20style-src\x20'self'\x20'unsafe-i
+SF:nline';\x20object-src\x20'none';\x20base-uri\x20'self';\r\nStrict-Trans
+SF:port-Security:\x20max-age=31536000\r\nExpires:\x200\r\nExpect-CT:\x20ma
+SF:x-age=0\r\nPragma:\x20no-cache\r\n\r\n{\"error\":\"The\x20requested\x20
+SF:file\x20was\x20not\x20found\.\"}");
+Device type: general purpose
+Running: Linux 2.6.X
+OS CPE: cpe:/o:linux:linux_kernel:2.6.32
+OS details: Linux 2.6.32
+Network Distance: 0 hops
+
+OS and Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jul 25 16:55:19 2021 -- 2 IP addresses (2 hosts up) scanned in 305.49 seconds

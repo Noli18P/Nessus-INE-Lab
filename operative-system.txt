@@ -1,0 +1,33 @@
+# Nmap 7.91 scan initiated Sun Jul 25 16:42:19 2021 as: nmap -O -o operative-system.txt 192.168.99.50,70
+Nmap scan report for 192.168.99.50
+Host is up (0.12s latency).
+Not shown: 997 closed ports
+PORT    STATE SERVICE
+135/tcp open  msrpc
+139/tcp open  netbios-ssn
+445/tcp open  microsoft-ds
+MAC Address: 00:50:56:A0:44:F0 (VMware)
+No exact OS matches for host (If you know what OS is running on it, see https://nmap.org/submit/ ).
+TCP/IP fingerprint:
+OS:SCAN(V=7.91%E=4%D=7/25%OT=135%CT=1%CU=33771%PV=Y%DS=1%DC=D%G=Y%M=005056%
+OS:TM=60FDF6EA%P=x86_64-pc-linux-gnu)SEQ(SP=106%GCD=1%ISR=10B%TI=I%CI=I%II=
+OS:I%SS=S%TS=0)OPS(O1=M4E7NW0NNT00NNS%O2=M4E7NW0NNT00NNS%O3=M4E7NW0NNT00%O4
+OS:=M4E7NW0NNT00NNS%O5=M4E7NW0NNT00NNS%O6=M4E7NNT00NNS)WIN(W1=FFFF%W2=FFFF%
+OS:W3=FFFF%W4=FFFF%W5=FFFF%W6=FFFF)ECN(R=Y%DF=Y%T=80%W=FFFF%O=M4E7NW0NNS%CC
+OS:=N%Q=)T1(R=Y%DF=Y%T=80%S=O%A=S+%F=AS%RD=0%Q=)T2(R=Y%DF=N%T=80%W=0%S=Z%A=
+OS:S%F=AR%O=%RD=0%Q=)T3(R=Y%DF=Y%T=80%W=FFFF%S=O%A=S+%F=AS%O=M4E7NW0NNT00NN
+OS:S%RD=0%Q=)T4(R=Y%DF=N%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)T5(R=Y%DF=N%T=80%W
+OS:=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)T6(R=Y%DF=N%T=80%W=0%S=A%A=O%F=R%O=%RD=0%Q=)
+OS:T7(R=Y%DF=N%T=80%W=0%S=Z%A=S+%F=AR%O=%RD=0%Q=)U1(R=Y%DF=N%T=80%IPL=B0%UN
+OS:=0%RIPL=G%RID=G%RIPCK=G%RUCK=G%RUD=G)IE(R=Y%DFI=S%T=80%CD=Z)
+
+Network Distance: 1 hop
+
+Nmap scan report for 192.168.99.70
+Host is up (0.000082s latency).
+All 1000 scanned ports on 192.168.99.70 are closed
+Too many fingerprints match this host to give specific OS details
+Network Distance: 0 hops
+
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Sun Jul 25 16:42:35 2021 -- 2 IP addresses (2 hosts up) scanned in 16.61 seconds
